@@ -17,16 +17,15 @@
 package edu.eci.arsw.myrestaurant.restcontrollers;
 
 
+import edu.eci.arsw.myrestaurant.services.OrderServicesException;
 import edu.eci.arsw.myrestaurant.services.RestaurantOrderServices;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-import edu.eci.arsw.myrestaurant.services.RestaurantOrderServicesStub;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -37,6 +36,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/orders")
 public class OrdersAPIController {
 
+    RestaurantOrderServices ros;
 
+    @GetMapping("/application")
+    private List<Integer> ordersCollector() throws OrderServicesException {
+            List<Integer> ordersMade = new ArrayList<>();
+                for (Integer orders : ros.getTablesWithOrders()) {
+                    ordersMade.add(orders);
+                    ros.calculateTableBill(orders);
+                }
+                return ordersMade;
+    }
 }
 

@@ -16,15 +16,14 @@
  */
 package edu.eci.arsw.myrestaurant.restcontrollers;
 
-import edu.eci.arsw.myrestaurant.model.Order;
-import edu.eci.arsw.myrestaurant.model.ProductType;
-import edu.eci.arsw.myrestaurant.model.RestaurantProduct;
-import edu.eci.arsw.myrestaurant.services.RestaurantOrderServices;
-import edu.eci.arsw.myrestaurant.services.RestaurantOrderServicesStub;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
+import edu.eci.arsw.myrestaurant.services.RestaurantOrderServices;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+import edu.eci.arsw.myrestaurant.services.RestaurantOrderServicesStub;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +37,5 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/orders")
 public class OrdersAPIController {
 
-
-    
 }
+
